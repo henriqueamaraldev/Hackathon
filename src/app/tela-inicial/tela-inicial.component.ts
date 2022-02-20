@@ -22,4 +22,18 @@ export class TelaInicialComponent implements OnInit {
       this.usersList = user
     })
   }
+  getUserBalance(user: User) {
+    let userBalance = 0
+    user.banks.forEach(bank => {
+      userBalance += bank.saving.balance
+    })
+    return userBalance
+  }
+  getUserPatrimony(user: User) {
+    let getUserPatrimony = 0
+    user.banks.forEach(bank => {
+      getUserPatrimony += bank.saving.balance
+    })
+    return getUserPatrimony
+  }
 }

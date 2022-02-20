@@ -1,3 +1,10 @@
+export interface User {
+  name: string;
+  cpf: string;
+  salary: number;
+  bornDate: string;
+  banks: Bank[];
+}
 export interface Institution {
   agency: string;
   number: string;
@@ -189,10 +196,3 @@ export interface Bank {
   bills: Bill[];
 }
 
-export interface User {
-  name: string;
-  cpf: string;
-  salary: number;
-  bornDate: string;
-  banks: Bank[];
-}
