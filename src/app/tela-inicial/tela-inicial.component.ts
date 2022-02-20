@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../model/User';
 
 @Component({
   selector: 'app-tela-inicial',
@@ -7,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TelaInicialComponent implements OnInit {
 
+  listCliente: User[]
+
+  pag : number = 1 ;
+  contador : number = 5;
   constructor() { }
 
   ngOnInit(): void {
