@@ -10,6 +10,8 @@ import { AuthService } from '../service/auth.service';
 export class TelaInicialComponent implements OnInit {
 
   usersList: User[]
+  pag: number = 1;
+  contador: number = 5;
   constructor(private service: AuthService) { }
 
   ngOnInit(): void {
