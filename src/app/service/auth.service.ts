@@ -19,18 +19,15 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
-  /*login(){
-    let loginResponse = this.http.post('https://openapi.xpi.com.br/oauth2/v1/access-token', this.body, this.token).subscribe((data) => {
-      this.keyId = data?['access_token'];
-    })
-    loginResponse = loginResponse?['access_token']
-    this.keyId = loginResponse
-  }*/
+  login(): Observable<any>{
+    return this.http.post<any>('https://openapi.xpi.com.br/oauth2/v1/access-token', this.body, this.token)
+  }
 
   token = {
     headers: new HttpHeaders().set('Authorization', this.keyId).append('Content-Type', 'application/json')
   }
-  getAllUser(): Observable<User>{
+  getAllUser(): Observable<User[]>{
+    this.login()
     const param = {
       params: {limit: '100'}
     }
@@ -38,9 +35,7 @@ export class AuthService {
       ...this.token,
       ...param
     }
-    return this.http.get<User>('https://openapi.xpi.com.br/openbanking/users', options);
+    return this.http.get<User[]>('https://ospenapi.xpi.com.br/openbanking/users', options);
   }
-
-
 
 }
